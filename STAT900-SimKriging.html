@@ -1579,7 +1579,9 @@ measured by mean squared prediction error?</p>
 <p>The package <code>SimKriging</code> was designed to investigate the
 results question through simulation studies.</p>
 <p>The performance measure is selected as the Relative Prediction
-Efficiency (RPE), <span class="math display">\[
+Efficiency (RPE) following <span class="citation">Zhang and Cai
+(2015)</span>,</p>
+<p><span class="math display">\[
 \text{RPE} = \frac{\mathrm{E}(Y_1(0) -
 \widehat{Y}_{1,\text{co-kriging}}(0))^2}{\mathrm{E}(Y_1(0) -
 \widehat{Y}_{1,\text{kriging}}(0))^2},
@@ -1657,42 +1659,6 @@ runing the code in terminal or Rstudio.</p>
 <p>We would recommand that you run setting with larger <code>n</code> in
 a server, for example fastlinux in MFCF, along with specifying
 <code>limited.memory = FALSE</code>.</p>
-<div id="example-of-tests" class="section level3">
-<h3>Example of Tests</h3>
-<p>The arguments passing to the main function <code>do_sim()</code>
-should satisfy the following constraints:</p>
-<ul>
-<li><code>alpha</code>: scale parameter &gt; 0</li>
-<li><code>sigma11</code>: marginal variance for the primary process &gt;
-0</li>
-<li><code>sigma22</code>: marginal variance for the auxiliary process
-&gt; 0</li>
-<li><code>rho</code>: correlation coefficient in [-1,1]</li>
-<li><code>n</code>: sample size &gt; 0, integer</li>
-<li><code>R</code>: number of simulation &gt; 0, integer</li>
-</ul>
-<p>All the constraints will be checked in <code>do_sim()</code>
-function.</p>
-<p>We use the unit test framework in R for testing, and our package
-passes the tests.</p>
-<p>Here are some examples,</p>
-<pre class="r"><code>library(testthat)
-test_that(&quot;the scale parameter should be positive&quot;,{
-  expect_error(do_sim(alpha = -2, sigma11 = 1, sigma22 = 1, rho = 0.2, n = 10, R = 100))
-})
-#&gt; Test passed 🥇
-try(do_sim(alpha = -2, sigma11 = 1, sigma22 = 1, rho = 0.2, n = 10, R = 100))
-#&gt; Error in do_sim(alpha = -2, sigma11 = 1, sigma22 = 1, rho = 0.2, n = 10,  : 
-#&gt;   is.numeric(alpha) &amp; alpha &gt; 0 is not TRUE
-
-test_that(&quot;the number of simulation should be an integer&quot;,{
-  expect_error(do_sim(alpha = 2, sigma11 = 1, sigma22 = 1, rho = 0.2, n = 10, R = 5.5))
-})
-#&gt; Test passed 😸
-try(do_sim(alpha = 2, sigma11 = 1, sigma22 = 1, rho = 0.2, n = 10, R = 5.5))
-#&gt; Error in do_sim(alpha = 2, sigma11 = 1, sigma22 = 1, rho = 0.2, n = 10,  : 
-#&gt;   R%%1 == 0 is not TRUE</code></pre>
-</div>
 </div>
 <div id="reproduce-main-results-in-the-final-report" class="section level2">
 <h2>Reproduce main results in the final report</h2>
@@ -1716,9 +1682,25 @@ main.results &lt;- simulation(alpha.list, sigma11.list, sigma22.list, rho.list,
                            n.list, R, seed = 6789)</code></pre>
 <p>It will take 30 minutes in MFCF cpu150.</p>
 <p>We would recommend that you run the <code>do_sim()</code> function
-introduced in the previous section to tese the package.</p>
-<p>In this vignette, we will not run the code but load the results
-instead. The results can be found in the <a href="https://github.com/tianyi-pan/STAT900-Final-Code/tree/main/results">repos</a>.</p>
+introduced in the previous section to test the package, or the following
+minimal working example,</p>
+<pre class="r"><code>## takes 1 second ... 
+MWE &lt;- simulation(alpha.list = c(2), 
+                  sigma11.list = c(2), 
+                  sigma22.list = c(2), 
+                  rho.list = c(0.2, 0.5),
+                  n.list = c(10, 20), 
+                  R = 100, seed = 6789)
+#&gt;   alpha sigma11 sigma22     rho       n       R 
+#&gt;     2.0     2.0     2.0     0.2    10.0   100.0 
+#&gt;   alpha sigma11 sigma22     rho       n       R 
+#&gt;     2.0     2.0     2.0     0.5    10.0   100.0 
+#&gt;   alpha sigma11 sigma22     rho       n       R 
+#&gt;     2.0     2.0     2.0     0.2    20.0   100.0 
+#&gt;   alpha sigma11 sigma22     rho       n       R 
+#&gt;     2.0     2.0     2.0     0.5    20.0   100.0</code></pre>
+<p>In this vignette, we will not rerun the simulation but load the
+results instead. The results can be found in the <a href="https://github.com/tianyi-pan/STAT900-Final-Code/tree/main/results">repos</a>.</p>
 <pre class="r"><code>load(&quot;results/main_results.RData&quot;)</code></pre>
 <p>The return of the <code>simulation</code> function is an S3 class,
 which is named as <code>simkriging_main</code>. We can check it by the
@@ -1913,6 +1895,54 @@ reproducible.</p>
 <p>The functions described above are the core functions in
 <code>SimKriging</code> package. For more information, you could use
 <code>?</code> for the name of function to check the manual page.</p>
+</div>
+<div id="examples-of-tests" class="section level2">
+<h2>Examples of Tests</h2>
+<p>We use the unit test package <code>testthat</code> in R for testing,
+and our package passes the tests.</p>
+<p>The arguments passing to the main function <code>do_sim()</code>
+should satisfy the following constraints:</p>
+<ul>
+<li><code>alpha</code>: scale parameter &gt; 0</li>
+<li><code>sigma11</code>: marginal variance for the primary process &gt;
+0</li>
+<li><code>sigma22</code>: marginal variance for the auxiliary process
+&gt; 0</li>
+<li><code>rho</code>: correlation coefficient in [-1,1]</li>
+<li><code>n</code>: sample size &gt; 0, integer</li>
+<li><code>R</code>: number of simulation &gt; 0, integer</li>
+</ul>
+<p>All the constraints will be checked in <code>do_sim()</code>
+function. Here are some examples,</p>
+<pre class="r"><code>library(testthat)
+test_that(&quot;the scale parameter should be positive&quot;,{
+  expect_error(do_sim(alpha = -2, sigma11 = 1, sigma22 = 1, rho = 0.2, n = 10, R = 100))
+})
+#&gt; Test passed 😀
+try(do_sim(alpha = -2, sigma11 = 1, sigma22 = 1, rho = 0.2, n = 10, R = 100))
+#&gt; Error in do_sim(alpha = -2, sigma11 = 1, sigma22 = 1, rho = 0.2, n = 10,  : 
+#&gt;   is.numeric(alpha) &amp; alpha &gt; 0 is not TRUE
+
+test_that(&quot;the number of simulation should be an integer&quot;,{
+  expect_error(do_sim(alpha = 2, sigma11 = 1, sigma22 = 1, rho = 0.2, n = 10, R = 5.5))
+})
+#&gt; Test passed 😀
+try(do_sim(alpha = 2, sigma11 = 1, sigma22 = 1, rho = 0.2, n = 10, R = 5.5))
+#&gt; Error in do_sim(alpha = 2, sigma11 = 1, sigma22 = 1, rho = 0.2, n = 10,  : 
+#&gt;   R%%1 == 0 &amp; R &gt; 0 is not TRUE</code></pre>
+<p>We also check the output of <code>simulation()</code> function. Her
+are some examples,</p>
+<pre class="r"><code>test_that(&quot;simulation output contains appropriate results&quot;,{
+  results &lt;- simulation(2, 1, 1, c(0.2, 0.5), 10, R = 100)
+  expect_true(class(results) == &quot;simkriging_main&quot;)
+  expect_true(!is.null(results$RE)) ## calculate RE correctly
+  expect_true(unique(unlist(lapply(results, length))) == 2) ## length of results
+})
+#&gt;   alpha sigma11 sigma22     rho       n       R 
+#&gt;     2.0     1.0     1.0     0.2    10.0   100.0 
+#&gt;   alpha sigma11 sigma22     rho       n       R 
+#&gt;     2.0     1.0     1.0     0.5    10.0   100.0 
+#&gt; Test passed 🎊</code></pre>
 </div>
 </div>
 <div id="references" class="section level1 unnumbered">
