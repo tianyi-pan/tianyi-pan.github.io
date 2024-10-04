@@ -77,10 +77,10 @@ dblp_url: # your DBLP profile url
 discord_id: # your discord id (18-digit unique numerical identifier)
 facebook_id: # your facebook id
 flickr_id: # your flickr id
-github_username: # your GitHub user name
+github_username: tianyi-pan # your GitHub user name
 gitlab_username: # your GitLab user name
 ieee_id: # your ieeexplore.ieee.org/author/id
-inspirehep_id: 1010907 # Inspire HEP author ID
+inspirehep_id: # Inspire HEP author ID
 instagram_id: # your instagram id
 kaggle_id: # your kaggle id
 keybase_username: # your keybase user name
@@ -95,7 +95,7 @@ pinterest_id: # your pinterest id
 publons_id: # your ID on Publons
 quora_username: # your Quora username
 research_gate_profile: # your profile on ResearchGate
-scholar_userid: qc6CJjYAAAAJ # your Google Scholar ID
+scholar_userid: # your Google Scholar ID
 scopus_id: # your profile on Scopus
 semanticscholar_id: # your Semantic Scholar ID
 spotify_id: # your spotify id
@@ -132,10 +132,10 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: al-folio # blog_name will be displayed in your blog page
-blog_description: a simple whitespace theme for academics
-permalink: /blog/:year/:title/
-lsi: false # produce an index for related posts
+# blog_name: al-folio # blog_name will be displayed in your blog page
+# blog_description: a simple whitespace theme for academics
+# permalink: /blog/:year/:title/
+# lsi: false # produce an index for related posts
 
 # Pagination
 pagination:
@@ -161,19 +161,19 @@ giscus:
   lang: en
 
 # Disqus comments (DEPRECATED)
-disqus_shortname: al-folio # put your disqus shortname
+# disqus_shortname: al-folio # put your disqus shortname
 # https://help.disqus.com/en/articles/1717111-what-s-a-shortname
 
 # External sources.
 # If you have blog posts published on medium.com or other external sources,
 # you can display them in your blog by adding a link to the RSS feed.
-external_sources:
-  - name: medium.com
-    rss_url: https://medium.com/@al-folio/feed
-  - name: Google Blog
-    posts:
-      - url: https://blog.google/technology/ai/google-gemini-update-flash-ai-assistant-io-2024/
-        published_date: 2024-05-14
+# external_sources:
+#   - name: medium.com
+#     rss_url: https://medium.com/@al-folio/feed
+#   - name: Google Blog
+#     posts:
+#       - url: https://blog.google/technology/ai/google-gemini-update-flash-ai-assistant-io-2024/
+#         published_date: 2024-05-14
 
 # -----------------------------------------------------------------------------
 # Newsletter
@@ -188,25 +188,25 @@ newsletter:
 # Collections
 # -----------------------------------------------------------------------------
 
-collections:
-  news:
-    defaults:
-      layout: post
-    output: true
-    permalink: /:collection/:title/
-  projects:
-    output: true
-    permalink: /:collection/:title/
+# collections:
+#   news:
+#     defaults:
+#       layout: post
+#     output: true
+#     permalink: /:collection/:title/
+#   projects:
+#     output: true
+#     permalink: /:collection/:title/
 
-announcements:
-  enabled: true
-  scrollable: true # adds a vertical scroll bar if there are more than 3 news items
-  limit: 5 # leave blank to include all the news in the `_news` folder
+# announcements:
+#   enabled: true
+#   scrollable: true # adds a vertical scroll bar if there are more than 3 news items
+#   limit: 5 # leave blank to include all the news in the `_news` folder
 
-latest_posts:
-  enabled: true
-  scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
-  limit: 3 # leave blank to include all the blog posts
+# latest_posts:
+#   enabled: true
+#   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
+#   limit: 3 # leave blank to include all the blog posts
 
 # -----------------------------------------------------------------------------
 # Jekyll settings
@@ -319,8 +319,8 @@ display_categories: ["external-services"] # these categories will be displayed o
 # -----------------------------------------------------------------------------
 
 scholar:
-  last_name: [Einstein]
-  first_name: [Albert, A.]
+  last_name: [Pan]
+  first_name: [Tianyi]
 
   style: apa
   locale: en
@@ -349,7 +349,7 @@ enable_publication_badges:
   altmetric: true # Altmetric badge (Customization options: https://badge-docs.altmetric.com/index.html)
   dimensions: true # Dimensions badge (Customization options: https://badge.dimensions.ai/)
   google_scholar: true # Google Scholar badge (https://scholar.google.com/intl/en/scholar/citations.html)
-  inspirehep: true # Inspire HEP badge (https://help.inspirehep.net/knowledge-base/citation-metrics/)
+  inspirehep: false # Inspire HEP badge (https://help.inspirehep.net/knowledge-base/citation-metrics/)
 
 # Filter out certain bibtex entry keywords used internally from the bib output
 filtered_bibtex_keywords:
