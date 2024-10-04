@@ -1,13 +1,13 @@
 ---
 layout: page
-permalink: /teaching/
-title: teaching
+permalink: /Teaching/
+title: Teaching
 nav: true
-nav_order: 6
+nav_order: 4
 ---
 
-# University of Waterloo
-## Teaching Assistant
+## University of Waterloo
+### Teaching Assistant
 + STAT 230: Probability
 + STAT 231: Statistics
 + STAT 330: Mathematical Statistics
