@@ -1,5 +1,5 @@
 ---
-layout: About
+layout: about
 title: About
 permalink: /
 subtitle: PhD Student in Statistics. <a href='https://uwaterloo.ca/statistics-and-actuarial-science/'>Department of Statistics and Actuarial Science, University of Waterloo</a>. 
