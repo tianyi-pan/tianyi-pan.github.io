@@ -14,3 +14,4 @@ nav_order: 4
 + STAT 331: Applied Linear Models
 + STAT 430/830: Experimental Design
 + STAT 842: Data Visualization
++ MATH 118: Calculus 2 for Engineering
