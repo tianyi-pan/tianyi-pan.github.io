@@ -10,10 +10,28 @@ nav_order: 2
 
 <!-- Bibsearch Feature -->
 
-{% include bib_search.liquid %}
+<!-- {% include bib_search.liquid %} -->
+
+
+
 
 <div class="publications">
+  {% bibliography --query @*[category=stat] %}
+</div>
 
-{% bibliography %}
 
+<br><br>
+#### Working Papers
+
+
+<div class="publications">
+  {% bibliography --query @*[category=working] %}
+</div>
+
+<br><br>
+#### Application Papers
+
+
+<div class="publications">
+  {% bibliography --query @*[category=application] %}
 </div>
