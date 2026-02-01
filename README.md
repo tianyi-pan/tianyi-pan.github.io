@@ -1,5 +1,7 @@
 # al-folio
 
+View the website locally with Jekyll: `bundle exec jekyll serve`
+
 <div align="center">
 
 [![Preview](readme_preview/al-folio-preview.png)](https://alshedivat.github.io/al-folio/)
