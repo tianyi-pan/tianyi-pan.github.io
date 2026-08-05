@@ -12,26 +12,23 @@ nav_order: 2
 
 <!-- {% include bib_search.liquid %} -->
 
-
-
-
-<div class="publications">
-  {% bibliography --query @*[category=stat] %}
-</div>
-
-
 <br><br>
 #### Working Papers
-
-
 <div class="publications">
   {% bibliography --query @*[category=working] %}
 </div>
 
 <br><br>
+#### Statistical Methodology Papers
+<div class="publications">
+  {% bibliography --query @*[category=stat] %}
+</div>
+
+
+
+
+<br><br>
 #### Application Papers
-
-
 <div class="publications">
   {% bibliography --query @*[category=application] %}
 </div>
