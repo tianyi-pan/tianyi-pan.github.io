@@ -10,7 +10,7 @@ profile:
   align: right
   image: pic.jpg
   image_circular: false # crops the image to make it circular
-  # more_info: > # <p>University of Waterloo</p>
+  # more_info: <p>University of Waterloo</p>
 
     
 
@@ -30,3 +30,5 @@ I received my PhD in Statistics from the University of Waterloo under the superv
 + Postdoctoral Fellow, Departmental Postdoctoral Fellowship Program, University of Toronto, 2026 - Present
 + PhD in Statistics, University of Waterloo, 2022 - 2026
 + MMath in Statistics, University of Waterloo, 2021 - 2022
+
+:envelope: **tianyi.pan@uwaterloo.ca**
