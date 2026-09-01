@@ -31,4 +31,4 @@ I received my PhD in Statistics from the University of Waterloo under the superv
 + PhD in Statistics, University of Waterloo, 2022 - 2026
 + MMath in Statistics, University of Waterloo, 2021 - 2022
 
-:envelope: **tianyi.pan@uwaterloo.ca**
+:envelope: **ty.pan@utoronto.ca**
