@@ -6,7 +6,7 @@ title: Tianyi Pan # the website title (if blank, full name will be used instead)
 first_name: Tianyi
 middle_name: 
 last_name: Pan
-email: tianyi.pan@uwaterloo.ca
+email: ty.pan@utoronto.ca
 description: > # the ">" symbol means to ignore newlines until "footer_text:". A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
@@ -112,7 +112,7 @@ youtube_id: # your youtube channel id (youtube.com/@<youtube_id>)
 zotero_username: # your zotero username
 
 contact_note: >
-  tianyi.pan@uwaterloo.ca
+  ty.pan@utoronto.ca
 
 # -----------------------------------------------------------------------------
 # Analytics and search engine verification
